@@ -23,6 +23,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = "MeNToSexe.lazy",
+    spec = "MeNToS64exe.lazy",
     change_detection = { notify = false },
 })

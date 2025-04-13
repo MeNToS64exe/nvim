@@ -8,4 +8,14 @@ vim.cmd("set clipboard+=unnamedplus")
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
 
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = "→ ",
+    trail = "·",
+    extends = "»",
+    precedes = "«",
+    eol = "↵",
+    space = " ",
+}
+
 vim.opt.shell = "/bin/zsh"

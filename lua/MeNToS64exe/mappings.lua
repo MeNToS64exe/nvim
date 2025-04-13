@@ -37,5 +37,5 @@ vim.keymap.set("n", "<A-Right>", "<C-w>l")
 
 -- LSP
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-vim.keymap.set('n', '\\e', vim.diagnostic.open_float)
-vim.keymap.set('n', '\\q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)

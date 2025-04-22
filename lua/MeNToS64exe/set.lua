@@ -18,4 +18,5 @@ vim.opt.listchars = {
     space = " ",
 }
 
+vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true })
 vim.opt.shell = "/bin/zsh"

@@ -30,12 +30,16 @@ vim.keymap.set("n", "<leader>t", function()
     end
 end)
 
-vim.keymap.set("n", "<A-Left>",  "<C-w>h")
-vim.keymap.set("n", "<A-Down>",  "<C-w>j")
-vim.keymap.set("n", "<A-Up>",    "<C-w>k")
+vim.keymap.set("n", "<A-Left>", "<C-w>h")
+vim.keymap.set("n", "<A-Down>", "<C-w>j")
+vim.keymap.set("n", "<A-Up>", "<C-w>k")
 vim.keymap.set("n", "<A-Right>", "<C-w>l")
 
 -- LSP
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+vim.keymap.set({ "n", "v" }, "<leader><A-l>", function()
+    vim.lsp.buf.format({ async = true })
+end)

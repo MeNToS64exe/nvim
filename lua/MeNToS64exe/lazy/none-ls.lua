@@ -1,32 +1,32 @@
 return {
-	"nvimtools/none-ls.nvim",
-	config = function()
-		local null_ls = require("null-ls")
+    "nvimtools/none-ls.nvim",
+    config = function()
+        local null_ls = require("null-ls")
 
-		-- Fix conflict with clangd on encoding positions
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.offsetEncoding = { "utf-8" }
+        -- Fix conflict with clangd on encoding positions
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.offsetEncoding = { "utf-8" }
 
-		null_ls.setup({
-			capabilities = capabilities,
-			sources = {
-				-- Lua (stylua)
-				null_ls.builtins.formatting.stylua.with({
-					extra_args = { "--indent-width", "4" },
-				}),
+        null_ls.setup({
+            capabilities = capabilities,
+            sources = {
+                -- Lua (stylua)
+                null_ls.builtins.formatting.stylua.with({
+                    extra_args = { "--indent-type", "Spaces", "--indent-width", "4" },
+                }),
 
-				-- Python (yapf)
-				null_ls.builtins.formatting.yapf.with({
-					extra_args = {
-						"--style",
-						"{based_on_style: pep8, indent_width: 4}",
-					},
-				}),
+                -- Python (yapf)
+                null_ls.builtins.formatting.yapf.with({
+                    extra_args = {
+                        "--style",
+                        "{based_on_style: pep8, indent_width: 4}",
+                    },
+                }),
 
-				-- C++ (clang-format)
-				null_ls.builtins.formatting.clang_format.with({
-					extra_args = {
-						[[--style={
+                -- C++ (clang-format)
+                null_ls.builtins.formatting.clang_format.with({
+                    extra_args = {
+                        [[--style={
                             "BasedOnStyle": "LLVM",
                             "IndentAccessModifiers": false,
                             "IndentWidth": 4,
@@ -38,9 +38,9 @@ return {
                             "EmptyLineBeforeAccessModifier": "Leave",
                             "AccessModifierOffset": -4
                         }]],
-					},
-				}),
-			},
-		})
-	end,
+                    },
+                }),
+            },
+        })
+    end,
 }

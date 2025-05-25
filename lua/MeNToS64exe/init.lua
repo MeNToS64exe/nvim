@@ -7,22 +7,22 @@ local autocmd = vim.api.nvim_create_autocmd
 local saveFileGroup = augroup("MeNToS64exeGroup", {})
 
 autocmd({ "BufWritePre" }, {
-	group = saveFileGroup,
-	pattern = "*",
-	callback = function()
-		local pos = vim.api.nvim_win_get_cursor(0)
+    group = saveFileGroup,
+    pattern = "*",
+    callback = function()
+        local pos = vim.api.nvim_win_get_cursor(0)
 
-		vim.cmd([[%s/\s\+$//e]])
+        vim.cmd([[%s/\s\+$//e]])
 
-		pcall(function()
-			vim.api.nvim_win_set_cursor(0, pos)
-		end)
+        pcall(function()
+            vim.api.nvim_win_set_cursor(0, pos)
+        end)
 
-		vim.lsp.buf.format({
-			async = false,
-			filter = function(client)
-				return client.name == "null-ls"
-			end,
-		})
-	end,
+        vim.lsp.buf.format({
+            async = false,
+            filter = function(client)
+                return client.name == "null-ls"
+            end,
+        })
+    end,
 })

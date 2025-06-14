@@ -83,7 +83,3 @@
 - Loads plugin spec from `MeNToS64exe.lazy`
 - On `VimEnter`, checks for plugin updates
 
----
-## License
-
-MIT License

@@ -26,7 +26,8 @@ return {
                 -- C++ (clang-format)
                 null_ls.builtins.formatting.clang_format.with({
                     extra_args = {
-                        [[--style={
+                        "--style",
+                        [[{
                             "BasedOnStyle": "LLVM",
                             "IndentAccessModifiers": false,
                             "IndentWidth": 4,
@@ -36,7 +37,12 @@ return {
                             "BreakBeforeBraces": "Attach",
                             "BreakBeforeConceptDeclarations": "Always",
                             "EmptyLineBeforeAccessModifier": "Leave",
-                            "AccessModifierOffset": -4
+                            "AccessModifierOffset": -4,
+                            "AllowShortCompoundRequirementOnASingleLine": true,
+                            "AllowShortEnumsOnASingleLine": true,
+                            "AllowShortFunctionsOnASingleLine": true,
+                            "AllowShortLambdasOnASingleLine": true,
+                            "BreakTemplateDeclarations": "Yes",
                         }]],
                     },
                 }),

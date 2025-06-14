@@ -48,6 +48,6 @@ vim.keymap.set({ "n", "v" }, "<leader><A-l>", function()
         end,
     })
 end)
+
 -- Telescope
--- vim.keymap.set("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols)
--- vim.keymap.set("n", "<leader>fS", require("telescope.builtin").lsp_workspace_symbols)
+-- for telescope mappings check telescope.lua

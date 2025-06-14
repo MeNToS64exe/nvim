@@ -13,15 +13,20 @@ return {
             })
         end,
     },
+    --[[
+    -- TODO: If this is uncommented, two LSP clients will be created in the editor.
+             Not sure if this piece of code is actually needed
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = { "lua_ls", "clangd", "pyright" },
                 handlers = {},
+                automatic_installation = false,
             })
         end,
     },
+    --]]
     {
         "neovim/nvim-lspconfig",
 

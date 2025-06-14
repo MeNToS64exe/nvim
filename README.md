@@ -59,8 +59,6 @@
 
 - `"p"` is remapped to paste without overwriting the unnamed register.
 
-В данном конфиге еще отсутствует много маппингов, в скором времени они будут дополнятся
-
 ---
 
 ## Overview 

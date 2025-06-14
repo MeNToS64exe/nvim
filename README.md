@@ -5,7 +5,7 @@
 - **Neovim** >= 0.10.0
 - **Git**
 - **Nerd Font** (for proper icon rendering)
-- **Shell**: zsh (лично использую zsh, но вы можете изменить на другой терминал в set.lua, см. --)
+- **Shell**: zsh 
 
 ---
 ## Plugins
@@ -63,9 +63,8 @@
 
 ---
 
-## Overview (Что внутри проекта, как дополнять его и что изменять)
+## Overview 
 
-В данном топике будут разбиратся файлы из директории lua/MeNToS64exe
 ### init.lua
 
 - Loads keymaps, settings, and lazy.nvim configuration.

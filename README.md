@@ -3,7 +3,7 @@
 - **Neovim** >= 0.10.0
 - **Git**
 - **Nerd Font** (for proper icon rendering)
-- **Shell**: zsh (лично использую zsh, но вы можете изменить на другой терминал в set.lua, см. --)
+- **Shell**: zsh 
 
 ---
 ## Plugins

@@ -82,3 +82,4 @@ What is inside the project, how to add your own plugins to it and what to change
 - Loads plugin spec from `MeNToS64exe.lazy`
 - On `VimEnter`, checks for plugin updates
 
+**This manual is not yet complete and will be updated in the near future**

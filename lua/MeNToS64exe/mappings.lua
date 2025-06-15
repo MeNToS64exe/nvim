@@ -35,6 +35,11 @@ vim.keymap.set("n", "<A-Down>", "<C-w>j")
 vim.keymap.set("n", "<A-Up>", "<C-w>k")
 vim.keymap.set("n", "<A-Right>", "<C-w>l")
 
+vim.keymap.set("n", "<A-h>", "<C-w>h")
+vim.keymap.set("n", "<A-j>", "<C-w>j")
+vim.keymap.set("n", "<A-k>", "<C-w>k")
+vim.keymap.set("n", "<A-l>", "<C-w>l")
+
 -- LSP
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)

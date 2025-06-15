@@ -1,11 +1,9 @@
-# Neovim Config
-
 ## Requirements
 
 - **Neovim** >= 0.10.0
 - **Git**
 - **Nerd Font** (for proper icon rendering)
-- **Shell**: zsh 
+- **Shell**: zsh (лично использую zsh, но вы можете изменить на другой терминал в set.lua, см. --)
 
 ---
 ## Plugins
@@ -59,16 +57,17 @@
 
 - `"p"` is remapped to paste without overwriting the unnamed register.
 
+This config is still missing a lot of mappings, they will be completed soon
+
 ---
 
-## Overview 
+## Overview
 
+What is inside the project, how to add to it and what to change (directory lua/MeNToS64exe)
 ### init.lua
 
 - Loads keymaps, settings, and lazy.nvim configuration.
-- Sets up an autocommand group to:
-    - Remove trailing whitespace on save.
-    - Format buffer via LSP (`none-ls`).
+- Sets up an autocommand group to remove trailing whitespace on save.
 ### mappings.lua
 
 - Defines all key bindings as described above.

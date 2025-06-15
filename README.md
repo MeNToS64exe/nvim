@@ -63,7 +63,7 @@ This config is still missing a lot of mappings, they will be completed soon
 
 ## Overview
 
-What is inside the project, how to add to it and what to change (directory lua/MeNToS64exe)
+What is inside the project, how to add your own plugins to it and what to change (directory lua/MeNToS64exe is dismantled)
 ### init.lua
 
 - Loads keymaps, settings, and lazy.nvim configuration.

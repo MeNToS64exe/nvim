@@ -15,7 +15,7 @@ return {
     },
     --[[
     -- TODO: If this is uncommented, two LSP clients will be created in the editor.
-             Not sure if this piece of code is actually needed
+             Not sure if this piece of code is actually needed.
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
@@ -29,7 +29,6 @@ return {
     --]]
     {
         "neovim/nvim-lspconfig",
-
         config = function()
             vim.diagnostic.config({
                 virtual_text = true,
@@ -43,22 +42,27 @@ return {
                 },
             })
 
-            local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             capabilities.offsetEncoding = { "utf-16" }
 
-            lspconfig.lua_ls.setup({
+            vim.lsp.config["lua_ls"] = {
                 capabilities = capabilities,
-            })
-            lspconfig.clangd.setup({
+            }
+
+            vim.lsp.config["clangd"] = {
                 capabilities = capabilities,
                 init_options = {
                     fallbackFlags = { "--std=c++20" },
                 },
-            })
-            lspconfig.pyright.setup({
+            }
+
+            vim.lsp.config["pyright"] = {
                 capabilities = capabilities,
-            })
+            }
+
+            vim.lsp.enable("lua_ls")
+            vim.lsp.enable("clangd")
+            vim.lsp.enable("pyright")
         end,
     },
 }

@@ -46,6 +46,9 @@ return {
                         }]],
                     },
                 }),
+
+                -- Verilog/SystemVerilog (verible)
+                -- TODO
             },
         })
     end,

@@ -51,9 +51,16 @@ return {
 
             vim.lsp.config["clangd"] = {
                 capabilities = capabilities,
---                init_options = {
---                    fallbackFlags = { "--std=c++20" },
---                },
+                cmd = {
+                    "clangd",
+                    "--background-index",
+                    "--clang-tidy",
+                    "--completion-style=detailed",
+                    "--header-insertion=never",
+                },
+                init_options = {
+                    fallbackFlags = { "-std=c++20", },
+                },
             }
 
             vim.lsp.config["pyright"] = {

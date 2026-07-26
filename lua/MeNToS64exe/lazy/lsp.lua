@@ -63,6 +63,10 @@ return {
                 },
             }
 
+            vim.lsp.config["cmake"] = {
+                capabilities = capabilities,
+            }
+
             vim.lsp.config["pyright"] = {
                 capabilities = capabilities,
             }
@@ -81,6 +85,7 @@ return {
 
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("clangd")
+            vim.lsp.enable("cmake")
             vim.lsp.enable("pyright")
             vim.lsp.enable("verible")
             vim.lsp.enable("haskell-language-server")

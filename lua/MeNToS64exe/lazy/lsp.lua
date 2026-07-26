@@ -51,9 +51,9 @@ return {
 
             vim.lsp.config["clangd"] = {
                 capabilities = capabilities,
-                init_options = {
-                    fallbackFlags = { "--std=c++20" },
-                },
+--                init_options = {
+--                    fallbackFlags = { "--std=c++20" },
+--                },
             }
 
             vim.lsp.config["pyright"] = {
@@ -64,10 +64,20 @@ return {
                 capabilities = capabilities,
             }
 
+            vim.lsp.config["haskell-language-server"] = {
+                capabilities = capabilities,
+            }
+
+            vim.lsp.config["r-languageserver"] = {
+                capabilities = capabilities,
+            }
+
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("clangd")
             vim.lsp.enable("pyright")
             vim.lsp.enable("verible")
+            vim.lsp.enable("haskell-language-server")
+            vim.lsp.enable("r-languageserver")
         end,
     },
 }

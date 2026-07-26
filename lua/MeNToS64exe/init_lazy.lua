@@ -24,11 +24,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = "MeNToS64exe.lazy",
-    change_detection = { notify = false },
-})
+    change_detection = { notify = false, },
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        require("lazy").update({ show = false })
-    end,
+    checker = {
+        enabled = true,
+        notify = false,
+        frequency = 86400,
+    },
 })

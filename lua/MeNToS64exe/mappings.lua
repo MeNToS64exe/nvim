@@ -40,10 +40,42 @@ vim.keymap.set("n", "<A-j>", "<C-w>j")
 vim.keymap.set("n", "<A-k>", "<C-w>k")
 vim.keymap.set("n", "<A-l>", "<C-w>l")
 
--- LSP
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+-- Diagnostics
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic", })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics location list", })
+vim.keymap.set("n", "[d", function()
+    vim.diagnostic.jump({
+        count = -1,
+    })
+end, { desc = "Previous diagnostic", })
+
+vim.keymap.set("n", "]d", function()
+    vim.diagnostic.jump({
+        count = 1,
+    })
+end, { desc = "Next diagnostic", })
+
+-- LSP mappings are only enabled for buffers with an attached LSP.
+local lsp_group = vim.api.nvim_create_augroup( "MeNToS64exeLspMappings", { clear = true, } )
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = lsp_group,
+
+    callback = function(event)
+        local opts = {
+            buffer = event.buf,
+            silent = true,
+        }
+
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    end,
+})
 
 vim.keymap.set({ "n", "v" }, "<leader><A-l>", function()
     vim.lsp.buf.format({

@@ -2,7 +2,7 @@ require("MeNToS64exe.mappings")
 require("MeNToS64exe.init_lazy")
 require("MeNToS64exe.set")
 require("MeNToS64exe.filetypes")
-require("MeNToS64exe.lsp_highlight")
+require("MeNToS64exe.lsp-highlight")
 
 local augroup = vim.api.nvim_create_augroup("MeNToS64exeGroup", { clear = true })
 

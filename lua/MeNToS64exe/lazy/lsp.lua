@@ -58,9 +58,9 @@ return {
                     "--completion-style=detailed",
                     "--header-insertion=never",
                 },
-                init_options = {
-                    fallbackFlags = { "-std=c++20", },
-                },
+                -- init_options = {
+                --     fallbackFlags = { "-std=c++20", },
+                -- },
             }
 
             vim.lsp.config["cmake"] = {

@@ -1,85 +1,56 @@
 ## Requirements
 
-- **Neovim** >= 0.10.0
-- **Git**
-- **Nerd Font** (for proper icon rendering)
-- **Shell**: zsh 
+### Core requirements
 
----
-## Plugins
+* Neovim >= 0.11
+* Git
+* zsh
+* Nerd Font
 
-- [**nvim-cmp**](https://github.com/hrsh7th/nvim-cmp) — Autocompletion
-- [**nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig) and related tools — LSP (Language Server Protocol) integration.
-- [**nvim-treesitter**](https://github.com/nvim-treesitter/nvim-treesitter) — Syntax highlighting
-- [**lualine.nvim**](https://github.com/nvim-lualine/lualine.nvim) — Statusline
-- [**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim) — Fuzzy finder
-- [**none-ls.nvim**](https://github.com/nvimtools/none-ls.nvim) — Interface for external linters and formatters
-- [**gitsigns.nvim**](https://github.com/lewis6991/gitsigns.nvim) — Git integration showing changes in the sign column
-- [**presence.nvim**](https://github.com/andweeb/presence.nvim) — Discord Rich Presence integration
-- [**onedarkpro.nvim**](https://github.com/olimorris/onedarkpro.nvim) — Onedark Dark theme
+### Command-line tools
 
----
-## Key Mappings
+```bash
+sudo pacman -S neovim git zsh ripgrep fd clang cmake make stylua yapf
+```
 
-**Leader key:** `\`
+Additional language servers:
 
-### General
+* `clangd` — C and C++ language server
+* `cmake-language-server` — CMake language server
+* `pyright` — Python language server
+* `verible-verilog-ls` — Verilog and SystemVerilog language server
 
-| Key         | Mode | Action                                   |
-| ----------- | ---- | ---------------------------------------- |
-| `<leader>t` | `n`  | Open or focus terminal in vertical split |
-### Telescope
+CMake LSP can be installed through Mason.
 
-| Key          | Mode | Action                |
-| ------------ | ---- | --------------------- |
-| `<leader>pf` | `n`  | Find files            |
-| `<C-p>`      | `n`  | Git-tracked files     |
-| `<leader>fs` | `n`  | LSP document symbols  |
-| `<leader>fS` | `n`  | LSP workspace symbols |
-| `<leader>fg` | `n`  | Live grep             |
-### Window Navigation
+Telescope uses:
 
-| Key                  | Mode | Action              |
-| -------------------- | ---- | ------------------- |
-| `<A-Left> or <A-h>`  | `n`  | Move to left split  |
-| `<A-Right> or <A-l>` | `n`  | Move to right split |
-| `<A-Up> or <A-k>`    | `n`  | Move to upper split |
-| `<A-Down> or <A-j>`  | `n`  | Move to lower split |
+* `ripgrep` for text search
+* `fd` for file search
 
-### LSP
+## Default LSP servers
 
-| Key          | Mode | Action                    |
-| ------------ | ---- | ------------------------- |
-| `<leader>rn` | `n`  | Rename symbol (LSP)       |
-| `<leader>e`  | `n`  | Show diagnostics in float |
+| Server    | File types                |
+| --------- | ------------------------- |
+| `clangd`  | C and C++                 |
+| `cmake`   | CMake                     |
+| `lua_ls`  | Lua                       |
+| `pyright` | Python                    |
+| `verible` | Verilog and SystemVerilog |
 
-### Visual Mode
+External formatting is provided through `none-ls`.
 
-- `"p"` is remapped to paste without overwriting the unnamed register.
+Configured formatters:
 
-This config is still missing a lot of mappings, they will be completed soon
+| Tool           | Purpose              |
+| -------------- | -------------------- |
+| `clang-format` | C and C++ formatting |
+| `stylua`       | Lua formatting       |
+| `yapf`         | Python formatting    |
 
----
+For C and C++ projects, `clangd` should have access to a `compile_commands.json` file.
+With CMake:
 
-## Overview
-
-What is inside the project, how to add your own plugins to it and what to change (directory lua/MeNToS64exe is dismantled)
-### init.lua
-
-- Loads keymaps, settings, and lazy.nvim configuration.
-- Sets up an autocommand group to remove trailing whitespace on save.
-### mappings.lua
-
-- Defines all key bindings as described above.
-### set.lua
-
-- Basic editor settings: tabs, clipboard, undo, etc.
-- Display characters for whitespace.
-- Sets shell to `/bin/zsh`
-### init_lazy.lua
-
-- Bootstraps lazy.nvim if not present
-- Loads plugin spec from `MeNToS64exe.lazy`
-- On `VimEnter`, checks for plugin updates
-
-**This manual is not yet complete and will be updated in the near future**
+```bash
+cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+ln -sfn build/compile_commands.json compile_commands.json
+```

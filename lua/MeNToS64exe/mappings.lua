@@ -86,5 +86,12 @@ vim.keymap.set({ "n", "v" }, "<leader><A-l>", function()
     })
 end)
 
+-- Build and quickfix
+vim.keymap.set("n", "<leader>mm", "<cmd>make<CR>", { desc = "Run make", })
+vim.keymap.set("n", "<leader>mq", "<cmd>copen<CR>", { desc = "Open quickfix", })
+vim.keymap.set("n", "<leader>mc", "<cmd>cclose<CR>", { desc = "Close quickfix", })
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next quickfix item", })
+vim.keymap.set("n", "[q", "<cmd>cprevious<CR>", { desc = "Previous quickfix item", })
+
 -- Telescope
 -- for telescope mappings check telescope.lua

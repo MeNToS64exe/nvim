@@ -21,3 +21,13 @@ vim.opt.listchars = {
 vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true })
 -- set terminal
 vim.opt.shell = "/bin/zsh"
+-- set indent for C/C++
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+
+    callback = function()
+        vim.bo.cindent = true
+        vim.bo.indentexpr = ""
+    end,
+})
+
